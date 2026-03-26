@@ -106,23 +106,15 @@ body {
 
 .header-hamburger {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 6px;
   cursor: pointer;
-  padding: 8px;
+  padding: 0;
   background: none;
   border: none;
   width: 44px;
   height: 44px;
-}
-
-.header-hamburger span {
-  display: block;
-  width: 28px;
-  height: 3px;
-  background: var(--brown);
-  border-radius: 1px;
+  color: var(--brown);
 }
 
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; position: relative; z-index: 1; }
@@ -827,7 +819,11 @@ body {
 <header class="header">
   <div class="header-left">
     <button class="header-hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
+      <svg width="28" height="20" viewBox="0 0 28 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="28" height="3" rx="1" fill="#503629"/>
+        <rect y="8.5" width="28" height="3" rx="1" fill="#503629"/>
+        <rect y="17" width="28" height="3" rx="1" fill="#503629"/>
+      </svg>
     </button>
   </div>
 
