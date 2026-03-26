@@ -18,7 +18,7 @@
   --yellow: #FFCD00;
   --yellow-hover: #E6B800;
   --black: #1c1c1c;
-  --brown: #503625;
+  --brown: #503629;
   --white: #ffffff;
   --gray-100: #f7f7f7;
   --gray-200: #ebebeb;
@@ -625,44 +625,137 @@ body {
   inset: 0;
   background: rgba(0,0,0,0.6);
   z-index: 200;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 20px;
+  padding: 40px 20px;
+  overflow-y: auto;
 }
 
 .modal-overlay.active { display: flex; }
 
 .modal {
   background: var(--white);
-  padding: 40px 32px;
-  max-width: 400px;
+  padding: 32px 28px;
+  max-width: 480px;
   width: 100%;
-  text-align: center;
 }
 
 .modal h3 {
   font-size: 18px;
   font-weight: 800;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  text-align: center;
 }
 
-.modal p { font-size: 13px; color: var(--gray-500); margin-bottom: 24px; line-height: 1.6; }
+.modal-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: #27ae60;
+  margin: 0 auto 16px;
+}
+
+.modal-check svg { color: white; }
+
+.modal-cart-list {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  border-top: 1px solid var(--gray-200);
+}
+
+.modal-cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--gray-200);
+  font-size: 12px;
+}
+
+.modal-cart-item .item-name {
+  flex: 1;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.modal-cart-item .item-qty {
+  color: var(--gray-500);
+  margin: 0 12px;
+  white-space: nowrap;
+}
+
+.modal-cart-item .item-price {
+  font-weight: 700;
+  color: var(--black);
+  white-space: nowrap;
+}
+
+.modal-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 800;
+  border-top: 2px solid var(--black);
+}
+
+.modal-notice {
+  background: var(--gray-100);
+  border-left: 3px solid var(--yellow);
+  padding: 12px 14px;
+  margin: 16px 0;
+  font-size: 11px;
+  color: var(--gray-500);
+  line-height: 1.6;
+}
+
+.modal-notice strong { color: var(--black); }
+
+.modal-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
 
 .btn-modal-close {
-  background: var(--black);
-  color: var(--white);
+  flex: 1;
+  background: var(--gray-200);
+  color: var(--black);
   border: none;
-  padding: 12px 32px;
+  padding: 12px 20px;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   cursor: pointer;
   font-family: inherit;
+  transition: background 0.15s;
 }
 
-.btn-modal-close:hover { background: var(--gray-700); }
+.btn-modal-close:hover { background: var(--gray-300); }
+
+.btn-modal-shop {
+  flex: 1;
+  background: var(--yellow);
+  color: var(--black);
+  border: none;
+  padding: 12px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.15s;
+}
+
+.btn-modal-shop:hover { background: var(--yellow-hover); }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
@@ -719,7 +812,7 @@ body {
   </div>
 
   <a href="https://www.meltonic.com/fr/" class="logo" target="_blank" rel="noopener">
-    <img class="logo-img" src="https://www.meltonic.com/img/minify/meltonic.png" alt="Meltonic">
+    <img class="logo-img" src="media/Logo MELTONIC.jpg" alt="Meltonic">
   </a>
 
   <div class="header-right">
@@ -912,9 +1005,19 @@ body {
 <!-- MODAL -->
 <div class="modal-overlay" id="cartModal">
   <div class="modal">
-    <h3>Bient&ocirc;t disponible</h3>
-    <p>L'ajout au panier sera actif apr&egrave;s int&eacute;gration sur la boutique Meltonic. En attendant, retrouvez tous les produits sur <a href="https://www.meltonic.com/fr/" target="_blank" rel="noopener" style="color:var(--black);font-weight:700">meltonic.com</a></p>
-    <button class="btn-modal-close" onclick="closeModal()">Fermer</button>
+    <div class="modal-check">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h3>Ajout&eacute; au panier</h3>
+    <ul class="modal-cart-list" id="modalCartList"></ul>
+    <div class="modal-total" id="modalCartTotal"></div>
+    <div class="modal-notice">
+      <strong>Version d&eacute;mo</strong> &mdash; Cette simulation illustre le comportement du bouton &laquo; Ajouter au panier &raquo;. L'int&eacute;gration r&eacute;elle n&eacute;cessite un acc&egrave;s aux fichiers du site Prestashop afin de connecter le simulateur &agrave; l'API panier et au catalogue produits.
+    </div>
+    <div class="modal-buttons">
+      <button class="btn-modal-close" onclick="closeModal()">Continuer</button>
+      <a href="https://www.meltonic.com/fr/" target="_blank" rel="noopener" class="btn-modal-shop">Voir la boutique</a>
+    </div>
   </div>
 </div>
 
@@ -1198,7 +1301,27 @@ function getExplanationApres() {
 }
 
 /* MODAL & RESTART */
-function openModal() { document.getElementById('cartModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
+function openModal() {
+  var reco = generateRecommendations();
+  var list = document.getElementById('modalCartList');
+  var totalEl = document.getElementById('modalCartTotal');
+  var total = 0;
+  var html = '';
+  ['avant', 'pendant', 'apres'].forEach(function(ph) {
+    reco[ph].forEach(function(item) {
+      var p = products[item.key];
+      var lineTotal = p.price * item.qty;
+      total += lineTotal;
+      html += '<li class="modal-cart-item"><span class="item-name">' + p.name + '</span>';
+      html += '<span class="item-qty">x' + item.qty + '</span>';
+      html += '<span class="item-price">' + lineTotal.toFixed(2).replace('.', ',') + ' \u20ac</span></li>';
+    });
+  });
+  list.innerHTML = html;
+  totalEl.innerHTML = '<span>Total</span><span>' + total.toFixed(2).replace('.', ',') + ' \u20ac</span>';
+  document.getElementById('cartModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
 function closeModal() { document.getElementById('cartModal').classList.remove('active'); document.body.style.overflow = ''; }
 
 function restart() {
