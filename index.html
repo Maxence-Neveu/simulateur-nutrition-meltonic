@@ -41,30 +41,48 @@ body {
 /* TOP BANNER */
 .top-banner {
   background: var(--brown);
-  padding: 8px 24px;
+  padding: 10px 24px;
   text-align: center;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--yellow);
   letter-spacing: 0.3px;
+  position: relative;
+  z-index: 101;
 }
 
 .top-banner a {
-  color: var(--yellow);
+  color: var(--white);
   text-decoration: underline;
+}
+
+/* Wavy transition from brown banner to yellow header */
+.banner-wave {
+  display: block;
+  width: 100%;
+  height: 20px;
+  background: var(--yellow);
+  position: relative;
+  z-index: 100;
+}
+
+.banner-wave svg {
+  display: block;
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* HEADER */
 .header {
   background: var(--yellow);
-  padding: 14px 24px 20px;
+  padding: 10px 24px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: sticky;
-  top: 0;
   z-index: 100;
-  border-bottom: none;
   position: relative;
   overflow: hidden;
 }
@@ -75,42 +93,41 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 45px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 45' preserveAspectRatio='none'%3E%3Cpath d='M0 45 L0 38 Q20 35 40 38 Q60 28 80 32 L85 30 Q90 22 100 28 L120 35 Q140 30 160 33 L180 28 Q200 20 220 25 L260 32 Q280 28 300 30 L340 22 L370 30 Q390 35 410 32 L430 28 Q450 18 470 22 L490 28 Q510 32 530 30 L560 25 Q580 15 600 20 L620 25 Q640 30 660 28 L690 22 Q710 15 730 20 L760 28 Q780 32 800 30 L830 24 Q850 16 870 22 L900 30 Q920 34 940 32 L960 28 Q980 22 1000 26 L1030 32 Q1050 36 1070 34 L1090 30 Q1110 24 1130 28 L1160 34 Q1180 38 1200 36 L1200 45 Z' fill='none' stroke='%23b8912e' stroke-width='0.8' opacity='0.35'/%3E%3Cpath d='M0 45 L0 40 Q50 36 100 38 L150 34 Q200 24 250 28 L300 20 L340 28 Q380 34 420 30 L470 24 Q520 14 560 18 L600 12 L640 18 Q680 24 720 20 L760 14 Q800 8 840 14 L880 20 Q920 26 960 22 L1000 16 Q1040 10 1080 16 L1120 22 Q1160 28 1200 24 L1200 45 Z' fill='none' stroke='%23b8912e' stroke-width='0.6' opacity='0.2'/%3E%3Cpath d='M0 45 L60 42 Q100 40 140 42 L200 38 Q240 32 280 36 L340 30 Q380 22 420 26 L480 18 L520 24 Q560 30 600 26 L660 20 Q700 12 740 16 L800 10 L840 16 Q880 22 920 18 L980 24 Q1020 30 1060 26 L1120 32 Q1160 38 1200 34 L1200 45 Z' fill='none' stroke='%23b8912e' stroke-width='0.5' opacity='0.15'/%3E%3C/svg%3E");
+  height: 60px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Cpath d='M0 60 L0 50 Q30 44 60 48 Q90 38 120 42 L160 36 Q200 26 240 32 L300 38 Q340 44 380 40 L420 34 Q460 24 500 28 L540 34 Q580 40 620 36 L660 30 Q700 20 740 26 L780 32 Q820 38 860 34 L900 28 Q940 18 980 24 L1020 30 Q1060 36 1100 32 L1140 38 Q1170 44 1200 40 L1200 60 Z' fill='none' stroke='%23503629' stroke-width='1' opacity='0.15'/%3E%3Cpath d='M0 60 L0 52 Q50 46 100 50 L180 42 Q240 30 300 36 L380 26 Q440 16 500 22 L560 14 Q620 8 680 14 L740 22 Q800 30 860 24 L920 16 Q980 8 1040 14 L1100 22 Q1150 30 1200 26 L1200 60 Z' fill='none' stroke='%23503629' stroke-width='0.8' opacity='0.1'/%3E%3C/svg%3E");
   background-size: 100% 100%;
   pointer-events: none;
 }
 
 .header-left {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-size: 12px;
-  color: var(--brown);
   position: relative;
   z-index: 1;
 }
 
-.header-left a {
-  color: var(--brown);
-  text-decoration: none;
+.header-hamburger {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 5px;
-  transition: opacity 0.15s;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
 }
 
-.header-left a:hover { opacity: 0.7; }
-
-.header-left svg { flex-shrink: 0; }
+.header-hamburger span {
+  display: block;
+  width: 28px;
+  height: 2.5px;
+  background: var(--brown);
+}
 
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; position: relative; z-index: 1; }
-.logo-img { height: 280px; }
+.logo-img { height: 100px; }
 
 .header-right {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   position: relative;
   z-index: 1;
 }
@@ -118,7 +135,6 @@ body {
 .header-icon {
   display: flex;
   align-items: center;
-  gap: 5px;
   color: var(--brown);
   text-decoration: none;
   font-size: 12px;
@@ -134,7 +150,7 @@ body {
   background: var(--white);
   border-bottom: 1px solid var(--gray-200);
   position: sticky;
-  top: 105px; /* ajusté dynamiquement si bannière visible */
+  top: 0;
   z-index: 99;
 }
 
@@ -764,12 +780,11 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .header-left { display: none; }
-  .header-right span { display: none; }
-  .header { justify-content: center; gap: 0; flex-wrap: wrap; }
-  .header-right { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); }
+  .header { padding: 8px 16px 18px; }
+  .header-right { gap: 14px; }
   .top-banner { font-size: 11px; padding: 6px 16px; }
-  .logo-img { height: 56px; }
+  .logo-img { height: 64px; }
+  .header-icon svg { width: 22px; height: 22px; }
 }
 
 @media (max-width: 600px) {
@@ -789,26 +804,27 @@ body {
   .progress-steps { gap: 12px; }
   .progress-step { font-size: 10px; }
   .btn-top { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
-  .header-icon span { display: none; }
 }
 </style>
 </head>
 <body>
 
 <div class="top-banner">
-  Frais de port offerts d&egrave;s 69&euro; d'achat | <a href="https://www.meltonic.com/fr/" target="_blank" rel="noopener">D&eacute;couvrir la boutique</a>
+  Frais de port offerts d&egrave;s 69&euro; d'achat* | 1 gel Coup de Boost XL offert &agrave; partir de 79&euro;
+</div>
+
+<div class="banner-wave">
+  <svg viewBox="0 0 1200 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0 Q30 0 60 4 Q90 8 120 6 Q150 4 180 8 Q210 12 240 8 Q270 4 300 7 Q330 10 360 6 Q390 2 420 6 Q450 10 480 8 Q510 6 540 10 Q570 14 600 10 Q630 6 660 8 Q690 10 720 6 Q750 2 780 6 Q810 10 840 8 Q870 6 900 10 Q930 14 960 10 Q990 6 1020 8 Q1050 10 1080 6 Q1110 2 1140 6 Q1170 10 1200 8 L1200 20 L0 20 Z" fill="#FFCD00"/>
+    <path d="M0 0 Q30 0 60 4 Q90 8 120 6 Q150 4 180 8 Q210 12 240 8 Q270 4 300 7 Q330 10 360 6 Q390 2 420 6 Q450 10 480 8 Q510 6 540 10 Q570 14 600 10 Q630 6 660 8 Q690 10 720 6 Q750 2 780 6 Q810 10 840 8 Q870 6 900 10 Q930 14 960 10 Q990 6 1020 8 Q1050 10 1080 6 Q1110 2 1140 6 Q1170 10 1200 8" fill="none" stroke="#503629" stroke-width="0.5" opacity="0"/>
+  </svg>
 </div>
 
 <header class="header">
   <div class="header-left">
-    <a href="tel:0241557552">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-      02 41 55 75 52
-    </a>
-    <a href="mailto:contact@meltonic.com">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      contact@meltonic.com
-    </a>
+    <button class="header-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 
   <a href="https://www.meltonic.com/fr/" class="logo" target="_blank" rel="noopener">
@@ -816,13 +832,11 @@ body {
   </a>
 
   <div class="header-right">
-    <a href="https://www.meltonic.com/fr/connexion?back=my-account" class="header-icon" target="_blank" rel="noopener">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      <span>Compte</span>
+    <a href="https://www.meltonic.com/fr/connexion?back=my-account" class="header-icon" target="_blank" rel="noopener" aria-label="Compte">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
     </a>
-    <a href="https://www.meltonic.com/fr/panier" class="header-icon" target="_blank" rel="noopener">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-      <span>Panier</span>
+    <a href="https://www.meltonic.com/fr/panier" class="header-icon" target="_blank" rel="noopener" aria-label="Panier">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
     </a>
   </div>
 </header>
