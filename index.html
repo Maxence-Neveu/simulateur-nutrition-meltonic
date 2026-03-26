@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Simulateur Nutrition | Meltonic - Nutrition sportive bio au miel</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FFCD00'/%3E%3Cpath d='M16 6c-3 0-5 2.5-5 6 0 4.5 2.5 10 5 14 2.5-4 5-9.5 5-14 0-3.5-2-6-5-6z' fill='%231c1c1c'/%3E%3C/svg%3E">
+<!-- Open Graph -->
+<meta property="og:title" content="Simulateur Nutrition Meltonic">
+<meta property="og:description" content="Trouvez votre plan nutrition sportive personnalisé en 2 minutes. Produits bio au miel et gelée royale, adaptés à votre sport et vos objectifs.">
+<meta property="og:image" content="https://www.meltonic.com/img/meltonic-logo-1652098521.jpg">
+<meta property="og:type" content="website">
+<meta name="description" content="Simulateur de nutrition sportive Meltonic. 6 questions pour un plan personnalisé avant, pendant et après l'effort. Produits bio au miel et gelée royale.">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -13,7 +19,6 @@
   --yellow-hover: #E6B800;
   --black: #1c1c1c;
   --brown: #503625;
-  --brown-light: #6B4D3A;
   --white: #ffffff;
   --gray-100: #f7f7f7;
   --gray-200: #ebebeb;
@@ -36,7 +41,7 @@ body {
 /* HEADER */
 .header {
   background: var(--white);
-  padding: 14px 24px;
+  padding: 12px 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,38 +51,19 @@ body {
   border-bottom: 1px solid var(--gray-200);
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-.logo-img {
-  height: 36px;
-}
-
-.logo-text {
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--black);
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-}
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-img { height: 40px; }
 
 /* PROGRESS */
 .progress-container {
   background: var(--white);
   border-bottom: 1px solid var(--gray-200);
   position: sticky;
-  top: 63px;
+  top: 65px;
   z-index: 99;
 }
 
-.progress-bar {
-  height: 3px;
-  background: var(--gray-200);
-}
+.progress-bar { height: 3px; background: var(--gray-200); }
 
 .progress-fill {
   height: 100%;
@@ -113,10 +99,7 @@ body {
 }
 
 /* INTRO */
-.intro-screen {
-  text-align: center;
-  padding: 60px 0 40px;
-}
+.intro-screen { text-align: center; padding: 60px 0 40px; }
 
 .intro-badge {
   display: inline-block;
@@ -157,16 +140,8 @@ body {
   color: var(--gray-500);
 }
 
-.intro-details span {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.intro-details strong {
-  color: var(--black);
-  font-weight: 700;
-}
+.intro-details span { display: flex; align-items: center; gap: 6px; }
+.intro-details strong { color: var(--black); font-weight: 700; }
 
 .btn-start {
   display: inline-block;
@@ -186,18 +161,10 @@ body {
 .btn-start:hover { background: var(--gray-700); }
 
 /* QUESTION SCREENS */
-.question-screen {
-  display: none;
-}
+.question-screen { display: none; }
+.question-screen.active { display: block; animation: fadeIn 0.3s ease; }
 
-.question-screen.active {
-  display: block;
-  animation: fadeIn 0.3s ease;
-}
-
-.question-header {
-  margin-bottom: 28px;
-}
+.question-header { margin-bottom: 28px; }
 
 .question-number {
   font-size: 11px;
@@ -209,18 +176,8 @@ body {
   display: block;
 }
 
-.question-title {
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--black);
-  line-height: 1.2;
-}
-
-.question-subtitle {
-  font-size: 14px;
-  color: var(--gray-500);
-  margin-top: 6px;
-}
+.question-title { font-size: 24px; font-weight: 800; color: var(--black); line-height: 1.2; }
+.question-subtitle { font-size: 14px; color: var(--gray-500); margin-top: 6px; }
 
 /* OPTION CARDS */
 .options-grid {
@@ -230,9 +187,7 @@ body {
   margin-bottom: 24px;
 }
 
-.options-grid.three-col {
-  grid-template-columns: 1fr 1fr 1fr;
-}
+.options-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
 
 .option-card {
   background: var(--white);
@@ -244,9 +199,7 @@ body {
   position: relative;
 }
 
-.option-card:hover {
-  border-color: var(--gray-300);
-}
+.option-card:hover { border-color: var(--gray-300); }
 
 .option-card.selected {
   border-color: var(--black);
@@ -267,25 +220,11 @@ body {
   background-position: center;
 }
 
-.option-label {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--black);
-  display: block;
-  margin-bottom: 2px;
-}
-
-.option-desc {
-  font-size: 12px;
-  color: var(--gray-500);
-}
+.option-label { font-size: 14px; font-weight: 700; color: var(--black); display: block; margin-bottom: 2px; }
+.option-desc { font-size: 12px; color: var(--gray-500); }
 
 /* FORM (profil) */
-.form-group {
-  border: 2px solid var(--gray-200);
-  padding: 20px;
-  margin-bottom: 8px;
-}
+.form-group { border: 2px solid var(--gray-200); padding: 20px; margin-bottom: 8px; }
 
 .form-label {
   font-size: 12px;
@@ -297,12 +236,7 @@ body {
   letter-spacing: 0.5px;
 }
 
-.radio-group {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
+.radio-group { display: flex; gap: 6px; flex-wrap: wrap; }
 .radio-btn { flex: 1; min-width: 70px; }
 .radio-btn input { display: none; }
 
@@ -336,22 +270,20 @@ body {
   background: var(--white);
 }
 
-.input-field:focus {
-  outline: none;
-  border-color: var(--black);
+.input-field:focus { outline: none; border-color: var(--black); }
+.input-field.error { border-color: #c0392b; }
+
+.input-suffix { display: flex; align-items: center; gap: 8px; }
+.input-suffix span { font-size: 14px; font-weight: 700; color: var(--gray-500); }
+
+.field-error {
+  font-size: 12px;
+  color: #c0392b;
+  margin-top: 6px;
+  display: none;
 }
 
-.input-suffix {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.input-suffix span {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--gray-500);
-}
+.field-error.visible { display: block; }
 
 /* NAVIGATION */
 .nav-buttons {
@@ -390,17 +322,9 @@ body {
 }
 
 .btn-next:hover, .btn-results:hover { background: var(--gray-700); }
+.btn-next:disabled { opacity: 0.3; cursor: not-allowed; }
 
-.btn-next:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
-.btn-results {
-  background: var(--yellow);
-  color: var(--black);
-}
-
+.btn-results { background: var(--yellow); color: var(--black); }
 .btn-results:hover { background: var(--yellow-hover); }
 
 /* RESULTS */
@@ -408,12 +332,11 @@ body {
   display: none;
   max-width: 780px;
   margin: 0 auto;
-  padding: 0 20px 80px;
+  padding: 0 20px 40px;
 }
 
 .result-container.active { display: block; }
 
-/* Profile Summary */
 .profile-summary {
   border-bottom: 3px solid var(--black);
   padding: 40px 0 28px;
@@ -429,18 +352,9 @@ body {
 }
 
 .profile-summary .highlight { color: var(--brown); }
+.profile-subtitle { color: var(--gray-500); font-size: 14px; margin-bottom: 20px; }
 
-.profile-subtitle {
-  color: var(--gray-500);
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-
-.profile-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
+.profile-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 
 .profile-tag {
   background: var(--gray-100);
@@ -452,9 +366,7 @@ body {
 }
 
 /* Phase Sections */
-.phase-section {
-  margin-bottom: 32px;
-}
+.phase-section { margin-bottom: 32px; }
 
 .phase-header {
   display: flex;
@@ -494,11 +406,7 @@ body {
 }
 
 /* Product Cards */
-.products-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
+.products-list { display: flex; flex-direction: column; }
 
 .product-card {
   display: flex;
@@ -506,11 +414,13 @@ body {
   gap: 14px;
   padding: 12px 0;
   border-bottom: 1px solid var(--gray-200);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
 }
 
-.product-card:last-child {
-  border-bottom: none;
-}
+.product-card:hover { background: var(--gray-100); margin: 0 -8px; padding: 12px 8px; }
+.product-card:last-child { border-bottom: none; }
 
 .product-image {
   width: 56px;
@@ -520,41 +430,21 @@ body {
   overflow: hidden;
 }
 
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.product-image img { width: 100%; height: 100%; object-fit: cover; }
 
 .product-info { flex: 1; min-width: 0; }
+.product-name { font-size: 13px; font-weight: 700; color: var(--black); line-height: 1.3; }
+.product-desc { font-size: 11px; color: var(--gray-500); margin-top: 1px; }
 
-.product-name {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--black);
-  line-height: 1.3;
-}
+.product-meta { text-align: right; flex-shrink: 0; }
+.product-price { font-size: 14px; font-weight: 800; color: var(--black); }
+.product-qty { font-size: 11px; color: var(--gray-500); }
 
-.product-desc {
-  font-size: 11px;
-  color: var(--gray-500);
-  margin-top: 1px;
-}
-
-.product-meta {
+.product-link-hint {
+  font-size: 10px;
+  color: var(--gray-300);
   text-align: right;
-  flex-shrink: 0;
-}
-
-.product-price {
-  font-size: 14px;
-  font-weight: 800;
-  color: var(--black);
-}
-
-.product-qty {
-  font-size: 11px;
-  color: var(--gray-500);
+  margin-top: 4px;
 }
 
 /* Cart Summary */
@@ -575,17 +465,8 @@ body {
   margin-bottom: 8px;
 }
 
-.cart-price {
-  font-size: 36px;
-  font-weight: 800;
-  margin-bottom: 4px;
-}
-
-.cart-note {
-  font-size: 11px;
-  opacity: 0.4;
-  margin-bottom: 24px;
-}
+.cart-price { font-size: 36px; font-weight: 800; margin-bottom: 4px; }
+.cart-note { font-size: 11px; opacity: 0.4; margin-bottom: 24px; }
 
 .btn-cart {
   background: var(--yellow);
@@ -619,10 +500,48 @@ body {
   transition: color 0.15s, border-color 0.15s;
 }
 
-.btn-restart:hover {
-  color: rgba(255,255,255,0.8);
-  border-color: rgba(255,255,255,0.4);
+.btn-restart:hover { color: rgba(255,255,255,0.8); border-color: rgba(255,255,255,0.4); }
+
+/* Back to top */
+.btn-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  transition: background 0.2s;
 }
+
+.btn-top:hover { background: var(--gray-700); }
+.btn-top.visible { display: flex; }
+
+/* Footer */
+.footer {
+  background: var(--gray-100);
+  border-top: 1px solid var(--gray-200);
+  padding: 24px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--gray-500);
+  line-height: 1.8;
+}
+
+.footer a {
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover { text-decoration: underline; }
 
 /* Modal */
 .modal-overlay {
@@ -653,12 +572,7 @@ body {
   margin-bottom: 12px;
 }
 
-.modal p {
-  font-size: 13px;
-  color: var(--gray-500);
-  margin-bottom: 24px;
-  line-height: 1.6;
-}
+.modal p { font-size: 13px; color: var(--gray-500); margin-bottom: 24px; line-height: 1.6; }
 
 .btn-modal-close {
   background: var(--black);
@@ -675,7 +589,6 @@ body {
 
 .btn-modal-close:hover { background: var(--gray-700); }
 
-/* ANIMATIONS */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
@@ -686,71 +599,57 @@ body {
   .intro-screen h1 { font-size: 24px; }
   .intro-details { gap: 16px; font-size: 12px; }
   .intro-desc { font-size: 14px; }
-
   .question-title { font-size: 20px; }
-
-  .options-grid,
-  .options-grid.three-col {
-    grid-template-columns: 1fr;
-  }
-
+  .options-grid, .options-grid.three-col { grid-template-columns: 1fr; }
   .btn-start { width: 100%; padding: 16px; }
   .btn-next, .btn-results { padding: 12px 24px; font-size: 12px; }
-
   .profile-summary h2 { font-size: 22px; }
   .phase-explanation { font-size: 12px; }
   .product-image { width: 48px; height: 48px; }
   .product-name { font-size: 12px; }
   .cart-price { font-size: 28px; }
   .cart-summary { padding: 24px 16px; }
-
   .progress-steps { gap: 12px; }
   .progress-step { font-size: 10px; }
+  .btn-top { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
 }
 </style>
 </head>
 <body>
 
 <header class="header">
-  <div class="logo">
-    <svg class="logo-img" viewBox="0 0 120 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="0" y="6" width="24" height="24" fill="#FFCD00"/>
-      <path d="M12 12C10 12 9 13.5 9 15.5C9 18 10.5 22 12 25C13.5 22 15 18 15 15.5C15 13.5 14 12 12 12Z" fill="#1c1c1c"/>
-    </svg>
-    <span class="logo-text">Meltonic</span>
-  </div>
+  <a href="https://www.meltonic.com/fr/" class="logo" target="_blank" rel="noopener">
+    <img class="logo-img" src="https://www.meltonic.com/img/minify/meltonic.png" alt="Meltonic">
+  </a>
 </header>
 
 <div class="progress-container" id="progressContainer" style="display:none;">
-  <div class="progress-bar">
-    <div class="progress-fill" id="progressFill"></div>
-  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
   <div class="progress-steps" id="progressSteps">
     <div class="progress-step" data-step="1">Sport</div>
     <div class="progress-step" data-step="2">Profil</div>
     <div class="progress-step" data-step="3">Effort</div>
     <div class="progress-step" data-step="4">Objectif</div>
     <div class="progress-step" data-step="5">Digestion</div>
-    <div class="progress-step" data-step="6">Goûts</div>
+    <div class="progress-step" data-step="6">Go&ucirc;ts</div>
   </div>
 </div>
 
 <div class="wizard-container" id="wizardContainer">
 
-  <!-- INTRO -->
   <div class="intro-screen" id="introScreen">
     <div class="intro-badge">Simulateur nutrition</div>
     <h1>Composez votre plan<br>nutrition sur mesure</h1>
-    <p class="intro-desc">6 questions pour un plan adapté à votre sport, votre profil et vos objectifs. Produits bio au miel et gelée royale.</p>
+    <p class="intro-desc">6 questions pour un plan adapt&eacute; &agrave; votre sport, votre profil et vos objectifs. Produits bio au miel et gel&eacute;e royale.</p>
     <div class="intro-details">
       <span><strong>6</strong> questions</span>
       <span><strong>2 min</strong> chrono</span>
-      <span><strong>100%</strong> personnalisé</span>
+      <span><strong>100%</strong> personnalis&eacute;</span>
     </div>
     <button class="btn-start" onclick="startWizard()">Commencer</button>
   </div>
 
-  <!-- Q1: Sport -->
+  <!-- Q1 -->
   <div class="question-screen" id="q1">
     <div class="question-header">
       <span class="question-number">Question 1 sur 6</span>
@@ -758,30 +657,12 @@ body {
       <p class="question-subtitle">Choisissez votre discipline principale.</p>
     </div>
     <div class="options-grid three-col">
-      <div class="option-card" onclick="selectOption(1,'running',this)">
-        <span class="option-label">Running</span>
-        <span class="option-desc">Route, piste</span>
-      </div>
-      <div class="option-card" onclick="selectOption(1,'trail',this)">
-        <span class="option-label">Trail</span>
-        <span class="option-desc">Sentiers, montagne</span>
-      </div>
-      <div class="option-card" onclick="selectOption(1,'velo',this)">
-        <span class="option-label">Vélo / VTT</span>
-        <span class="option-desc">Route, tout-terrain</span>
-      </div>
-      <div class="option-card" onclick="selectOption(1,'triathlon',this)">
-        <span class="option-label">Triathlon</span>
-        <span class="option-desc">Multi-disciplines</span>
-      </div>
-      <div class="option-card" onclick="selectOption(1,'rando',this)">
-        <span class="option-label">Randonnée</span>
-        <span class="option-desc">Trek, itinérance</span>
-      </div>
-      <div class="option-card" onclick="selectOption(1,'autre',this)">
-        <span class="option-label">Autre</span>
-        <span class="option-desc">Sport d'endurance</span>
-      </div>
+      <div class="option-card" onclick="selectOption(1,'running',this)"><span class="option-label">Running</span><span class="option-desc">Route, piste</span></div>
+      <div class="option-card" onclick="selectOption(1,'trail',this)"><span class="option-label">Trail</span><span class="option-desc">Sentiers, montagne</span></div>
+      <div class="option-card" onclick="selectOption(1,'velo',this)"><span class="option-label">V&eacute;lo / VTT</span><span class="option-desc">Route, tout-terrain</span></div>
+      <div class="option-card" onclick="selectOption(1,'triathlon',this)"><span class="option-label">Triathlon</span><span class="option-desc">Multi-disciplines</span></div>
+      <div class="option-card" onclick="selectOption(1,'rando',this)"><span class="option-label">Randonn&eacute;e</span><span class="option-desc">Trek, itin&eacute;rance</span></div>
+      <div class="option-card" onclick="selectOption(1,'autre',this)"><span class="option-label">Autre</span><span class="option-desc">Sport d'endurance</span></div>
     </div>
     <div class="nav-buttons">
       <button class="btn-back" onclick="goBack(0)">&larr; Retour</button>
@@ -789,28 +670,22 @@ body {
     </div>
   </div>
 
-  <!-- Q2: Profil -->
+  <!-- Q2 -->
   <div class="question-screen" id="q2">
     <div class="question-header">
       <span class="question-number">Question 2 sur 6</span>
       <h2 class="question-title">Votre profil</h2>
-      <p class="question-subtitle">Pour adapter les quantités à votre morphologie.</p>
+      <p class="question-subtitle">Pour adapter les quantit&eacute;s &agrave; votre morphologie.</p>
     </div>
     <div class="form-group">
       <span class="form-label">Sexe</span>
       <div class="radio-group">
-        <div class="radio-btn">
-          <input type="radio" name="sexe" id="sexe-h" value="homme" onchange="updateProfile()">
-          <label for="sexe-h">Homme</label>
-        </div>
-        <div class="radio-btn">
-          <input type="radio" name="sexe" id="sexe-f" value="femme" onchange="updateProfile()">
-          <label for="sexe-f">Femme</label>
-        </div>
+        <div class="radio-btn"><input type="radio" name="sexe" id="sexe-h" value="homme" onchange="updateProfile()"><label for="sexe-h">Homme</label></div>
+        <div class="radio-btn"><input type="radio" name="sexe" id="sexe-f" value="femme" onchange="updateProfile()"><label for="sexe-f">Femme</label></div>
       </div>
     </div>
     <div class="form-group">
-      <span class="form-label">Tranche d'âge</span>
+      <span class="form-label">Tranche d'&acirc;ge</span>
       <div class="radio-group">
         <div class="radio-btn"><input type="radio" name="age" id="age-1" value="18-30" onchange="updateProfile()"><label for="age-1">18-30</label></div>
         <div class="radio-btn"><input type="radio" name="age" id="age-2" value="30-45" onchange="updateProfile()"><label for="age-2">30-45</label></div>
@@ -824,6 +699,7 @@ body {
         <input type="number" class="input-field" id="poids" placeholder="70" min="30" max="200" oninput="updateProfile()">
         <span>kg</span>
       </div>
+      <div class="field-error" id="poidsError">Veuillez indiquer un poids entre 30 et 200 kg.</div>
     </div>
     <div class="nav-buttons">
       <button class="btn-back" onclick="goBack(1)">&larr; Retour</button>
@@ -831,29 +707,17 @@ body {
     </div>
   </div>
 
-  <!-- Q3: Effort -->
+  <!-- Q3 -->
   <div class="question-screen" id="q3">
     <div class="question-header">
       <span class="question-number">Question 3 sur 6</span>
-      <h2 class="question-title">Durée typique de vos sorties ?</h2>
+      <h2 class="question-title">Dur&eacute;e typique de vos sorties ?</h2>
     </div>
     <div class="options-grid">
-      <div class="option-card" onclick="selectOption(3,'moins1h',this)">
-        <span class="option-label">Moins d'1h</span>
-        <span class="option-desc">Sortie courte</span>
-      </div>
-      <div class="option-card" onclick="selectOption(3,'1a2h',this)">
-        <span class="option-label">1h à 2h</span>
-        <span class="option-desc">Sortie moyenne</span>
-      </div>
-      <div class="option-card" onclick="selectOption(3,'2a4h',this)">
-        <span class="option-label">2h à 4h</span>
-        <span class="option-desc">Sortie longue</span>
-      </div>
-      <div class="option-card" onclick="selectOption(3,'plus4h',this)">
-        <span class="option-label">Plus de 4h</span>
-        <span class="option-desc">Ultra, raid</span>
-      </div>
+      <div class="option-card" onclick="selectOption(3,'moins1h',this)"><span class="option-label">Moins d'1h</span><span class="option-desc">Sortie courte</span></div>
+      <div class="option-card" onclick="selectOption(3,'1a2h',this)"><span class="option-label">1h &agrave; 2h</span><span class="option-desc">Sortie moyenne</span></div>
+      <div class="option-card" onclick="selectOption(3,'2a4h',this)"><span class="option-label">2h &agrave; 4h</span><span class="option-desc">Sortie longue</span></div>
+      <div class="option-card" onclick="selectOption(3,'plus4h',this)"><span class="option-label">Plus de 4h</span><span class="option-desc">Ultra, raid</span></div>
     </div>
     <div class="nav-buttons">
       <button class="btn-back" onclick="goBack(2)">&larr; Retour</button>
@@ -861,25 +725,16 @@ body {
     </div>
   </div>
 
-  <!-- Q4: Objectif -->
+  <!-- Q4 -->
   <div class="question-screen" id="q4">
     <div class="question-header">
       <span class="question-number">Question 4 sur 6</span>
       <h2 class="question-title">Votre objectif principal ?</h2>
     </div>
     <div class="options-grid">
-      <div class="option-card" onclick="selectOption(4,'performance',this)">
-        <span class="option-label">Performance</span>
-        <span class="option-desc">Aller plus vite, plus loin</span>
-      </div>
-      <div class="option-card" onclick="selectOption(4,'bienetre',this)">
-        <span class="option-label">Bien-être</span>
-        <span class="option-desc">Profiter sans chrono</span>
-      </div>
-      <div class="option-card" onclick="selectOption(4,'decouverte',this)">
-        <span class="option-label">Découverte</span>
-        <span class="option-desc">Première expérience</span>
-      </div>
+      <div class="option-card" onclick="selectOption(4,'performance',this)"><span class="option-label">Performance</span><span class="option-desc">Aller plus vite, plus loin</span></div>
+      <div class="option-card" onclick="selectOption(4,'bienetre',this)"><span class="option-label">Bien-&ecirc;tre</span><span class="option-desc">Profiter sans chrono</span></div>
+      <div class="option-card" onclick="selectOption(4,'decouverte',this)"><span class="option-label">D&eacute;couverte</span><span class="option-desc">Premi&egrave;re exp&eacute;rience</span></div>
     </div>
     <div class="nav-buttons">
       <button class="btn-back" onclick="goBack(3)">&larr; Retour</button>
@@ -887,26 +742,17 @@ body {
     </div>
   </div>
 
-  <!-- Q5: Digestion -->
+  <!-- Q5 -->
   <div class="question-screen" id="q5">
     <div class="question-header">
       <span class="question-number">Question 5 sur 6</span>
-      <h2 class="question-title">Sensibilité digestive ?</h2>
-      <p class="question-subtitle">Pour adapter les textures et formats recommandés.</p>
+      <h2 class="question-title">Sensibilit&eacute; digestive ?</h2>
+      <p class="question-subtitle">Pour adapter les textures et formats recommand&eacute;s.</p>
     </div>
     <div class="options-grid">
-      <div class="option-card" onclick="selectOption(5,'aucune',this)">
-        <span class="option-label">Aucun problème</span>
-        <span class="option-desc">Tout passe bien</span>
-      </div>
-      <div class="option-card" onclick="selectOption(5,'legere',this)">
-        <span class="option-label">Sensibilité légère</span>
-        <span class="option-desc">Parfois inconfortable</span>
-      </div>
-      <div class="option-card" onclick="selectOption(5,'forte',this)">
-        <span class="option-label">Sensibilité forte</span>
-        <span class="option-desc">Problèmes fréquents</span>
-      </div>
+      <div class="option-card" onclick="selectOption(5,'aucune',this)"><span class="option-label">Aucun probl&egrave;me</span><span class="option-desc">Tout passe bien</span></div>
+      <div class="option-card" onclick="selectOption(5,'legere',this)"><span class="option-label">Sensibilit&eacute; l&eacute;g&egrave;re</span><span class="option-desc">Parfois inconfortable</span></div>
+      <div class="option-card" onclick="selectOption(5,'forte',this)"><span class="option-label">Sensibilit&eacute; forte</span><span class="option-desc">Probl&egrave;mes fr&eacute;quents</span></div>
     </div>
     <div class="nav-buttons">
       <button class="btn-back" onclick="goBack(4)">&larr; Retour</button>
@@ -914,33 +760,21 @@ body {
     </div>
   </div>
 
-  <!-- Q6: Goûts -->
+  <!-- Q6 -->
   <div class="question-screen" id="q6">
     <div class="question-header">
       <span class="question-number">Question 6 sur 6</span>
-      <h2 class="question-title">Vos préférences de goût ?</h2>
+      <h2 class="question-title">Vos pr&eacute;f&eacute;rences de go&ucirc;t ?</h2>
     </div>
     <div class="options-grid">
-      <div class="option-card" onclick="selectOption(6,'sucre',this)">
-        <span class="option-label">Sucré</span>
-        <span class="option-desc">Fruits, miel, chocolat</span>
-      </div>
-      <div class="option-card" onclick="selectOption(6,'sale',this)">
-        <span class="option-label">Salé</span>
-        <span class="option-desc">Cacahuète, cajou, sel</span>
-      </div>
-      <div class="option-card" onclick="selectOption(6,'les2',this)">
-        <span class="option-label">Les deux</span>
-        <span class="option-desc">Varier les plaisirs</span>
-      </div>
-      <div class="option-card" onclick="selectOption(6,'pasdepref',this)">
-        <span class="option-label">Pas de préférence</span>
-        <span class="option-desc">Surprise</span>
-      </div>
+      <div class="option-card" onclick="selectOption(6,'sucre',this)"><span class="option-label">Sucr&eacute;</span><span class="option-desc">Fruits, miel, chocolat</span></div>
+      <div class="option-card" onclick="selectOption(6,'sale',this)"><span class="option-label">Sal&eacute;</span><span class="option-desc">Cacahu&egrave;te, cajou, sel</span></div>
+      <div class="option-card" onclick="selectOption(6,'les2',this)"><span class="option-label">Les deux</span><span class="option-desc">Varier les plaisirs</span></div>
+      <div class="option-card" onclick="selectOption(6,'pasdepref',this)"><span class="option-label">Pas de pr&eacute;f&eacute;rence</span><span class="option-desc">Surprise</span></div>
     </div>
     <div class="nav-buttons">
       <button class="btn-back" onclick="goBack(5)">&larr; Retour</button>
-      <button class="btn-results" onclick="showResults()">Voir mes résultats &rarr;</button>
+      <button class="btn-results" onclick="showResults()">Voir mes r&eacute;sultats &rarr;</button>
     </div>
   </div>
 
@@ -955,62 +789,70 @@ body {
   <div id="cartSummary"></div>
 </div>
 
+<!-- BACK TO TOP -->
+<button class="btn-top" id="btnTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <a href="https://www.meltonic.com/fr/" target="_blank" rel="noopener">Meltonic</a> &mdash; Nutrition sportive bio au miel et gel&eacute;e royale, fabriqu&eacute;e en France depuis 2014.<br>
+  Ce simulateur est un outil indicatif. Consultez un professionnel de sant&eacute; pour des conseils nutritionnels personnalis&eacute;s.
+</footer>
+
 <!-- MODAL -->
 <div class="modal-overlay" id="cartModal">
   <div class="modal">
-    <h3>Bientôt disponible</h3>
-    <p>L'ajout au panier sera actif après intégration sur la boutique Meltonic. Retrouvez tous nos produits sur <strong>meltonic.com</strong></p>
+    <h3>Bient&ocirc;t disponible</h3>
+    <p>L'ajout au panier sera actif apr&egrave;s int&eacute;gration sur la boutique Meltonic. En attendant, retrouvez tous les produits sur <a href="https://www.meltonic.com/fr/" target="_blank" rel="noopener" style="color:var(--black);font-weight:700">meltonic.com</a></p>
     <button class="btn-modal-close" onclick="closeModal()">Fermer</button>
   </div>
 </div>
 
 <script>
-/* STATE */
 var answers = { sport: null, sexe: null, age: null, poids: null, duree: null, objectif: null, digestion: null, gout: null };
 var currentStep = 0;
 
-/* PRODUCT DATABASE */
+/* PRODUCT DATABASE - with links to meltonic.com */
 var products = {
-  gateau_choco:     { name: "Gâteau énergétique bio Chocolat",         price: 14.50, img: "https://www.meltonic.com/10063-large_default/gateau-energetique-bio-chocolat.jpg", cat: "avant", desc: "Dernier repas énergétique avant compétition" },
-  gateau_framboise: { name: "Gâteau énergétique bio Framboise",        price: 14.50, img: "https://www.meltonic.com/10657-large_default/gateau-energetique-bio-framboise.jpg", cat: "avant", desc: "À déguster juste avant la compétition" },
-  gateau_noisette:  { name: "Gâteau énergétique bio Noisette",         price: 14.50, img: "https://www.meltonic.com/10064-large_default/gateau-energetique-bio-noisette.jpg", cat: "avant", desc: "À déguster juste avant la compétition" },
-  tonic_dej:        { name: "Tonic Dej' Bio Chocolat",                 price: 25.90, img: "https://www.meltonic.com/10062-large_default/tonic-dej-bio-chocolat-miel-gelee-royale.jpg", cat: "avant", desc: "Petit-déjeuner idéal avant l'effort" },
-  maltodextrine:    { name: "Maltodextrine de maïs bio Citron",        price: 16.90, img: "https://www.meltonic.com/9513-large_default/maltodextrine-de-mais.jpg", cat: "avant", desc: "Augmente les réserves énergétiques" },
-  spiruline:        { name: "Spiruline Tonic Bio",                     price: 12.90, img: "https://www.meltonic.com/9850-large_default/spiruline-tonic-bio.jpg", cat: "avant", desc: "Alliée pour l'effort et la récupération" },
-  magnesium:        { name: "Magnésium Tonic",                         price: 19.90, img: "https://www.meltonic.com/9848-large_default/magnesium-tonic.jpg", cat: "avant", desc: "Regain d'énergie, fatigue musculaire" },
-  acerola:          { name: "Acérola Tonic Bio",                       price: 14.90, img: "https://www.meltonic.com/9965-large_default/gelee-royale-tonic-bio.jpg", cat: "avant", desc: "Vitamine C pour tonus et vitalité" },
-  creme:            { name: "Crème anti-frottements",                   price:  9.90, img: "https://www.meltonic.com/18052-large_default/creme-anti-frottements.jpg", cat: "avant", desc: "Prévient les frottements douloureux" },
+  gateau_choco:     { name: "G\u00e2teau \u00e9nerg\u00e9tique bio Chocolat", price: 14.50, img: "https://www.meltonic.com/10063-large_default/gateau-energetique-bio-chocolat.jpg", url: "https://www.meltonic.com/fr/gateau-sport-/24-327-gateau-energetique-bio-chocolat.html", desc: "Dernier repas \u00e9nerg\u00e9tique avant comp\u00e9tition" },
+  gateau_framboise: { name: "G\u00e2teau \u00e9nerg\u00e9tique bio Framboise", price: 14.50, img: "https://www.meltonic.com/10657-large_default/gateau-energetique-bio-framboise.jpg", url: "https://www.meltonic.com/fr/gateau-sport-/81-329-gateau-energetique-bio-framboise.html", desc: "\u00c0 d\u00e9guster juste avant la comp\u00e9tition" },
+  gateau_noisette:  { name: "G\u00e2teau \u00e9nerg\u00e9tique bio Noisette", price: 14.50, img: "https://www.meltonic.com/10064-large_default/gateau-energetique-bio-noisette.jpg", url: "https://www.meltonic.com/fr/gateau-sport-/82-331-gateau-energetique-bio-noisette.html", desc: "\u00c0 d\u00e9guster juste avant la comp\u00e9tition" },
+  tonic_dej:        { name: "Tonic Dej' Bio Chocolat", price: 25.90, img: "https://www.meltonic.com/10062-large_default/tonic-dej-bio-chocolat-miel-gelee-royale.jpg", url: "https://www.meltonic.com/fr/creme-energetique-/2112-472-tonic-dej-bio-chocolat-miel-gelee-royale.html", desc: "Petit-d\u00e9jeuner id\u00e9al avant l'effort" },
+  maltodextrine:    { name: "Maltodextrine de ma\u00efs bio Citron", price: 16.90, img: "https://www.meltonic.com/9513-large_default/maltodextrine-de-mais.jpg", url: "https://www.meltonic.com/fr/boisson-energetique/56-326-maltodextrine-de-mais.html", desc: "Augmente les r\u00e9serves \u00e9nerg\u00e9tiques" },
+  spiruline:        { name: "Spiruline Tonic Bio", price: 12.90, img: "https://www.meltonic.com/9850-large_default/spiruline-tonic-bio.jpg", url: "https://www.meltonic.com/fr/complements-alimentaires/55-206-spiruline-tonic-bio.html", desc: "Alli\u00e9e pour l'effort et la r\u00e9cup\u00e9ration" },
+  magnesium:        { name: "Magn\u00e9sium Tonic", price: 19.90, img: "https://www.meltonic.com/9848-large_default/magnesium-tonic.jpg", url: "https://www.meltonic.com/fr/complements-alimentaires/69-202-magnesium-tonic.html", desc: "Regain d'\u00e9nergie, fatigue musculaire" },
+  acerola:          { name: "Ac\u00e9rola Tonic Bio", price: 14.90, img: "https://www.meltonic.com/9965-large_default/gelee-royale-tonic-bio.jpg", url: "https://www.meltonic.com/fr/complements-alimentaires/42-208-gelee-royale-tonic-bio.html", desc: "Vitamine C pour tonus et vitalit\u00e9" },
+  creme:            { name: "Cr\u00e8me anti-frottements", price: 9.90, img: "https://www.meltonic.com/18052-large_default/creme-anti-frottements.jpg", url: "https://www.meltonic.com/fr/soin-de-preparation/65-366-creme-anti-frottements.html", desc: "Pr\u00e9vient les frottements douloureux" },
 
-  gel_endurance:    { name: "Gel énergétique Endurance bio",            price:  2.90, img: "https://www.meltonic.com/19135-large_default/gel-energetique-endurance.jpg", cat: "pendant", desc: "Apport naturel d'énergie fruitée" },
-  gel_ultra:        { name: "Gel Ultra Endurance bio",                  price:  2.90, img: "https://www.meltonic.com/19138-large_default/gel-energetique-ultra-endurance.jpg", cat: "pendant", desc: "Énergie naturelle longues distances" },
-  gel_boost:        { name: "Gel Coup de Boost",                       price:  2.90, img: "https://www.meltonic.com/19143-large_default/gel-energetique-coup-de-boost.jpg", cat: "pendant", desc: "Caféine et magnésium" },
-  gel_sale:         { name: "Gel Salé bio",                            price:  2.90, img: "https://www.meltonic.com/19155-large_default/gel-energetique-sale.jpg", cat: "pendant", desc: "Gel énergétique goût salé" },
+  gel_endurance:    { name: "Gel \u00e9nerg\u00e9tique Endurance bio", price: 2.90, img: "https://www.meltonic.com/19135-large_default/gel-energetique-endurance.jpg", url: "https://www.meltonic.com/fr/gels-energetiques-au-miel/48-398-gel-energetique-endurance.html", desc: "Apport naturel d'\u00e9nergie fruit\u00e9e" },
+  gel_ultra:        { name: "Gel Ultra Endurance bio", price: 2.90, img: "https://www.meltonic.com/19138-large_default/gel-energetique-ultra-endurance.jpg", url: "https://www.meltonic.com/fr/gels-energetiques-au-miel/25-401-gel-energetique-ultra-endurance.html", desc: "\u00c9nergie naturelle longues distances" },
+  gel_boost:        { name: "Gel Coup de Boost", price: 2.90, img: "https://www.meltonic.com/19143-large_default/gel-energetique-coup-de-boost.jpg", url: "https://www.meltonic.com/fr/gels-energetiques-au-miel/49-397-gel-energetique-coup-de-boost.html", desc: "Caf\u00e9ine et magn\u00e9sium" },
+  gel_sale:         { name: "Gel Sal\u00e9 bio", price: 2.90, img: "https://www.meltonic.com/19155-large_default/gel-energetique-sale.jpg", url: "https://www.meltonic.com/fr/gels-energetiques-au-miel/52-399-gel-energetique-sale.html", desc: "Gel \u00e9nerg\u00e9tique go\u00fbt sal\u00e9" },
 
-  boisson_citron:   { name: "Boisson énergétique bio Citron (x6)",     price: 14.90, img: "https://www.meltonic.com/2419-large_default/boisson-energetique-antioxydante.jpg", cat: "pendant", desc: "Hydratation & énergie bio" },
-  boisson_fruits:   { name: "Boisson énergétique bio Fruits rouges (x2)", price: 5.90, img: "https://www.meltonic.com/15806-large_default/sachets-boisson-energetique-bio-fruits-rouges.jpg", cat: "pendant", desc: "Hydratation & énergie bio" },
-  boisson_menthe:   { name: "Boisson énergétique bio Menthe (x2)",     price:  4.72, img: "https://www.meltonic.com/15807-large_default/sachet-boisson-energetique-bio-menthe.jpg", cat: "pendant", desc: "Fraîcheur et énergie bio" },
+  boisson_citron:   { name: "Boisson \u00e9nerg\u00e9tique bio Citron (x6)", price: 14.90, img: "https://www.meltonic.com/2419-large_default/boisson-energetique-antioxydante.jpg", url: "https://www.meltonic.com/fr/boisson-energetique/27-324-boisson-energetique-antioxydante.html", desc: "Hydratation & \u00e9nergie bio" },
+  boisson_fruits:   { name: "Boisson \u00e9nerg\u00e9tique bio Fruits rouges (x2)", price: 5.90, img: "https://www.meltonic.com/15806-large_default/sachets-boisson-energetique-bio-fruits-rouges.jpg", url: "https://www.meltonic.com/fr/boisson-energetique/14263-sachets-boisson-energetique-bio-fruits-rouges.html", desc: "Hydratation & \u00e9nergie bio" },
+  boisson_menthe:   { name: "Boisson \u00e9nerg\u00e9tique bio Menthe (x2)", price: 4.72, img: "https://www.meltonic.com/15807-large_default/sachet-boisson-energetique-bio-menthe.jpg", url: "https://www.meltonic.com/fr/boisson-energetique/14264-sachet-boisson-energetique-bio-menthe.html", desc: "Fra\u00eecheur et \u00e9nergie bio" },
 
-  barre_pistache:   { name: "Barre énergétique bio Pistaches & Fleur de sel", price: 2.60, img: "https://www.meltonic.com/14513-large_default/barre-salee.jpg", cat: "pendant", desc: "Énergie et sodium" },
-  barre_fraise:     { name: "Barre énergétique bio Fraise Citron",     price:  2.60, img: "https://www.meltonic.com/14511-large_default/barre-energetique-bio-fraise-citron.jpg", cat: "pendant", desc: "Énergie et gourmandise" },
-  barre_cacahuete:  { name: "Barre énergétique bio Cacahuète",         price:  2.60, img: "https://www.meltonic.com/14519-large_default/barre-energetique-bio-cacahuete-choco.jpg", cat: "pendant", desc: "Chocolatée et gourmande" },
-  barre_cereales_cajou: { name: "Barre céréales bio Cajou & Fleur de Sel", price: 2.90, img: "https://www.meltonic.com/8104-large_default/barre-cereales-noix-de-cajou.jpg", cat: "pendant", desc: "Encas croustillant" },
+  barre_pistache:   { name: "Barre \u00e9nerg\u00e9tique bio Pistaches & Fleur de sel", price: 2.60, img: "https://www.meltonic.com/14513-large_default/barre-salee.jpg", url: "https://www.meltonic.com/fr/barre-energetique/35-384-barre-salee.html", desc: "\u00c9nergie et sodium" },
+  barre_fraise:     { name: "Barre \u00e9nerg\u00e9tique bio Fraise Citron", price: 2.60, img: "https://www.meltonic.com/14511-large_default/barre-energetique-bio-fraise-citron.jpg", url: "https://www.meltonic.com/fr/barre-energetique/6314-505-barre-energetique-bio-fraise-citron.html", desc: "\u00c9nergie et gourmandise" },
+  barre_cacahuete:  { name: "Barre \u00e9nerg\u00e9tique bio Cacahu\u00e8te", price: 2.60, img: "https://www.meltonic.com/14519-large_default/barre-energetique-bio-cacahuete-choco.jpg", url: "https://www.meltonic.com/fr/barre-energetique/13077-621-barre-energetique-bio-cacahuete-choco.html", desc: "Chocolat\u00e9e et gourmande" },
+  barre_cereales_cajou: { name: "Barre c\u00e9r\u00e9ales bio Cajou & Fleur de Sel", price: 2.90, img: "https://www.meltonic.com/8104-large_default/barre-cereales-noix-de-cajou.jpg", url: "https://www.meltonic.com/fr/barre-de-cereales-sport/247-496-barre-cereales-noix-de-cajou.html", desc: "Encas croustillant" },
 
-  puree_cajou:      { name: "Purée salée Cajou",                       price:  2.90, img: "https://www.meltonic.com/15192-large_default/stick-puree-salee-cajou.jpg", cat: "pendant", desc: "Format pratique, goût salé" },
-  puree_cacahuete:  { name: "Purée salée Cacahuètes",                  price:  2.90, img: "https://www.meltonic.com/15191-large_default/stick-puree-salee-cacahuetes.jpg", cat: "pendant", desc: "Format pratique, goût salé" },
+  puree_cajou:      { name: "Pur\u00e9e sal\u00e9e Cajou", price: 2.90, img: "https://www.meltonic.com/15192-large_default/stick-puree-salee-cajou.jpg", url: "https://www.meltonic.com/fr/purees-energetiques/8362-533-stick-puree-salee-cajou.html", desc: "Format pratique, go\u00fbt sal\u00e9" },
+  puree_cacahuete:  { name: "Pur\u00e9e sal\u00e9e Cacahu\u00e8tes", price: 2.90, img: "https://www.meltonic.com/15191-large_default/stick-puree-salee-cacahuetes.jpg", url: "https://www.meltonic.com/fr/purees-energetiques/8366-536-stick-puree-salee-cacahuetes.html", desc: "Format pratique, go\u00fbt sal\u00e9" },
 
-  flask_250:        { name: "Soft flask 250ml",                        price:  9.90, img: "https://www.meltonic.com/11819-large_default/soft-flask-250ml.jpg", cat: "pendant", desc: "Flasque souple légère" },
-  flask_500:        { name: "Soft flask 500ml",                        price: 12.90, img: "https://www.meltonic.com/12027-large_default/soft-flask.jpg", cat: "pendant", desc: "Flasque souple grande capacité" },
-  fiole:            { name: "Fiole éco rechargeable 37ml",             price:  4.90, img: "https://www.meltonic.com/266-large_default/fiole-eco-gel.jpg", cat: "pendant", desc: "Pour recharger vos gels" },
+  flask_250:        { name: "Soft flask 250ml", price: 9.90, img: "https://www.meltonic.com/11819-large_default/soft-flask-250ml.jpg", url: "https://www.meltonic.com/fr/accessoires/10517-593-soft-flask-250ml.html", desc: "Flasque souple l\u00e9g\u00e8re" },
+  flask_500:        { name: "Soft flask 500ml", price: 12.90, img: "https://www.meltonic.com/12027-large_default/soft-flask.jpg", url: "https://www.meltonic.com/fr/accessoires/111-333-soft-flask.html", desc: "Flasque souple grande capacit\u00e9" },
+  fiole:            { name: "Fiole \u00e9co rechargeable 37ml", price: 4.90, img: "https://www.meltonic.com/266-large_default/fiole-eco-gel.jpg", url: "https://www.meltonic.com/fr/accessoires/58-380-fiole-eco-gel.html", desc: "Pour recharger vos gels" },
 
-  proteine:         { name: "Protéine végétale bio",                   price: 19.90, img: "https://www.meltonic.com/11125-large_default/proteine-vegetale.jpg", cat: "apres", desc: "Récupération après l'effort" },
-  collagene:        { name: "Collagène Tonic",                         price: 14.90, img: "https://www.meltonic.com/17666-large_default/collagene-tonic.jpg", cat: "apres", desc: "Articulations et récupération" },
-  curcuma:          { name: "Curcuma Tonic Bio",                       price: 12.90, img: "https://www.meltonic.com/9849-large_default/curcuma-tonic.jpg", cat: "apres", desc: "Confort articulaire" },
-  infusion:         { name: "Infusion Récup' bio",                     price:  5.90, img: "https://www.meltonic.com/19357-large_default/infusion-recup-.jpg", cat: "apres", desc: "Récupération rapide et efficace" },
-  gel_recup:        { name: "Gel récup' Cosmos Natural",               price:  9.90, img: "https://www.meltonic.com/18053-large_default/gel-recup.jpg", cat: "apres", desc: "Ultra frais, récupération rapide" },
-  tonic_boost:      { name: "Tonic Boost Shot Bio",                    price: 19.90, img: "https://www.meltonic.com/14234-large_default/tonic-boost-shot.jpg", cat: "apres", desc: "Shot d'énergie naturelle" }
+  proteine:         { name: "Prot\u00e9ine v\u00e9g\u00e9tale bio", price: 19.90, img: "https://www.meltonic.com/11125-large_default/proteine-vegetale.jpg", url: "https://www.meltonic.com/fr/proteines-vegetales/257-301-proteine-vegetale.html", desc: "R\u00e9cup\u00e9ration apr\u00e8s l'effort" },
+  collagene:        { name: "Collag\u00e8ne Tonic", price: 14.90, img: "https://www.meltonic.com/17666-large_default/collagene-tonic.jpg", url: "https://www.meltonic.com/fr/complements-alimentaires/16000-655-collagene-tonic.html", desc: "Articulations et r\u00e9cup\u00e9ration" },
+  curcuma:          { name: "Curcuma Tonic Bio", price: 12.90, img: "https://www.meltonic.com/9849-large_default/curcuma-tonic.jpg", url: "https://www.meltonic.com/fr/complements-alimentaires/68-205-curcuma-tonic.html", desc: "Confort articulaire" },
+  infusion:         { name: "Infusion R\u00e9cup' bio", price: 5.90, img: "https://www.meltonic.com/19357-large_default/infusion-recup-.jpg", url: "https://www.meltonic.com/fr/infusion/328-368-infusion-recup-.html", desc: "R\u00e9cup\u00e9ration rapide et efficace" },
+  gel_recup:        { name: "Gel r\u00e9cup' Cosmos Natural", price: 9.90, img: "https://www.meltonic.com/18053-large_default/gel-recup.jpg", url: "https://www.meltonic.com/fr/soin-de-recuperation/2356-474-gel-recup.html", desc: "Ultra frais, r\u00e9cup\u00e9ration rapide" },
+  tonic_boost:      { name: "Tonic Boost Shot Bio", price: 19.90, img: "https://www.meltonic.com/14234-large_default/tonic-boost-shot.jpg", url: "https://www.meltonic.com/fr/complements-alimentaires/12590-607-tonic-boost-shot.html", desc: "Shot d'\u00e9nergie naturelle" }
 };
 
-/* WIZARD NAVIGATION */
+/* NAVIGATION */
 function startWizard() {
   document.getElementById('introScreen').style.display = 'none';
   document.getElementById('progressContainer').style.display = 'block';
@@ -1038,10 +880,7 @@ function goNext(step) { showStep(step); }
 
 function goBack(step) {
   if (step === 0) {
-    for (var i = 1; i <= 6; i++) {
-      document.getElementById('q' + i).style.display = 'none';
-      document.getElementById('q' + i).classList.remove('active');
-    }
+    for (var i = 1; i <= 6; i++) { document.getElementById('q' + i).style.display = 'none'; document.getElementById('q' + i).classList.remove('active'); }
     document.getElementById('introScreen').style.display = 'block';
     document.getElementById('progressContainer').style.display = 'none';
     currentStep = 0;
@@ -1058,11 +897,10 @@ function updateProgress() {
   });
 }
 
-/* OPTION SELECTION */
+/* SELECTION */
 function selectOption(question, value, el) {
   el.parentElement.querySelectorAll('.option-card').forEach(function(c) { c.classList.remove('selected'); });
   el.classList.add('selected');
-
   switch (question) {
     case 1: answers.sport = value; break;
     case 3: answers.duree = value; break;
@@ -1070,14 +908,10 @@ function selectOption(question, value, el) {
     case 5: answers.digestion = value; break;
     case 6: answers.gout = value; break;
   }
-
   var btn = document.getElementById('btn' + question);
   if (btn) btn.disabled = false;
-
   if (question < 6) {
-    setTimeout(function() {
-      goNext(question === 1 ? 2 : (question === 5 ? 6 : question + 1));
-    }, 300);
+    setTimeout(function() { goNext(question === 1 ? 2 : (question === 5 ? 6 : question + 1)); }, 300);
   }
 }
 
@@ -1085,10 +919,26 @@ function updateProfile() {
   var sexeEl = document.querySelector('input[name="sexe"]:checked');
   var ageEl = document.querySelector('input[name="age"]:checked');
   var poidsEl = document.getElementById('poids');
+  var poidsVal = poidsEl.value ? parseInt(poidsEl.value) : null;
+  var errorEl = document.getElementById('poidsError');
+
   answers.sexe = sexeEl ? sexeEl.value : null;
   answers.age = ageEl ? ageEl.value : null;
-  answers.poids = poidsEl.value ? parseInt(poidsEl.value) : null;
-  document.getElementById('btn2').disabled = !(answers.sexe && answers.age && answers.poids && answers.poids >= 30);
+  answers.poids = poidsVal;
+
+  // Validation
+  var poidsValid = poidsVal && poidsVal >= 30 && poidsVal <= 200;
+  var poidsTyped = poidsEl.value.length > 0;
+
+  if (poidsTyped && !poidsValid) {
+    poidsEl.classList.add('error');
+    errorEl.classList.add('visible');
+  } else {
+    poidsEl.classList.remove('error');
+    errorEl.classList.remove('visible');
+  }
+
+  document.getElementById('btn2').disabled = !(answers.sexe && answers.age && poidsValid);
 }
 
 /* RECOMMENDATION ENGINE */
@@ -1099,25 +949,14 @@ function generateRecommendations() {
   // AVANT
   if (gout === 'sale' || gout === 'les2') { reco.avant.push({ key: 'gateau_noisette', qty: 1 }); }
   else { reco.avant.push({ key: 'gateau_choco', qty: 1 }); }
-
-  if (duree === '2a4h' || duree === 'plus4h' || objectif === 'performance') {
-    reco.avant.push({ key: 'maltodextrine', qty: 1 });
-  }
-  if (objectif === 'performance') {
-    reco.avant.push({ key: 'spiruline', qty: 1 });
-    reco.avant.push({ key: 'magnesium', qty: 1 });
-  }
+  if (duree === '2a4h' || duree === 'plus4h' || objectif === 'performance') { reco.avant.push({ key: 'maltodextrine', qty: 1 }); }
+  if (objectif === 'performance') { reco.avant.push({ key: 'spiruline', qty: 1 }); reco.avant.push({ key: 'magnesium', qty: 1 }); }
   if (duree === 'plus4h') { reco.avant.push({ key: 'tonic_dej', qty: 1 }); }
-  if (objectif === 'bienetre' || answers.age === '45-60' || answers.age === '60+') {
-    reco.avant.push({ key: 'acerola', qty: 1 });
-  }
-  if (duree === '2a4h' || duree === 'plus4h' || sport === 'trail' || sport === 'rando') {
-    reco.avant.push({ key: 'creme', qty: 1 });
-  }
+  if (objectif === 'bienetre' || answers.age === '45-60' || answers.age === '60+') { reco.avant.push({ key: 'acerola', qty: 1 }); }
+  if (duree === '2a4h' || duree === 'plus4h' || sport === 'trail' || sport === 'rando') { reco.avant.push({ key: 'creme', qty: 1 }); }
 
   // PENDANT
   var nbGels = { 'moins1h': 1, '1a2h': 2, '2a4h': 4, 'plus4h': 6 }[duree] || 1;
-
   if (gout === 'sale') {
     reco.pendant.push({ key: 'gel_sale', qty: Math.ceil(nbGels / 2) });
     if (nbGels > 1) reco.pendant.push({ key: 'gel_endurance', qty: Math.floor(nbGels / 2) });
@@ -1127,17 +966,11 @@ function generateRecommendations() {
     reco.pendant.push({ key: 'gel_endurance', qty: Math.ceil(nbGels / 2) });
     if (nbGels > 1) reco.pendant.push({ key: 'gel_ultra', qty: Math.floor(nbGels / 2) });
   }
-
-  if (objectif === 'performance' && duree !== 'moins1h') {
-    reco.pendant.push({ key: 'gel_boost', qty: duree === 'plus4h' ? 2 : 1 });
-  }
-
+  if (objectif === 'performance' && duree !== 'moins1h') { reco.pendant.push({ key: 'gel_boost', qty: duree === 'plus4h' ? 2 : 1 }); }
   if (duree !== 'moins1h') {
-    if (gout === 'sale') { reco.pendant.push({ key: 'boisson_menthe', qty: 1 }); }
-    else { reco.pendant.push({ key: 'boisson_fruits', qty: 1 }); }
+    reco.pendant.push({ key: gout === 'sale' ? 'boisson_menthe' : 'boisson_fruits', qty: 1 });
     if (duree === '2a4h' || duree === 'plus4h') { reco.pendant.push({ key: 'boisson_citron', qty: 1 }); }
   }
-
   if ((duree === '2a4h' || duree === 'plus4h') && digestion !== 'forte') {
     var nbBarres = duree === 'plus4h' ? 3 : 1;
     if (gout === 'sale' || gout === 'les2') {
@@ -1148,18 +981,13 @@ function generateRecommendations() {
       if (nbBarres > 1) reco.pendant.push({ key: 'barre_pistache', qty: Math.floor(nbBarres / 2) });
     }
   }
-
   if ((gout === 'sale' || gout === 'les2') && (duree === '2a4h' || duree === 'plus4h')) {
     reco.pendant.push({ key: 'puree_cajou', qty: duree === 'plus4h' ? 2 : 1 });
     if (duree === 'plus4h') { reco.pendant.push({ key: 'puree_cacahuete', qty: 1 }); }
   }
-
   if (digestion === 'forte' && (duree === '2a4h' || duree === 'plus4h') && gout !== 'sucre') {
-    if (!reco.pendant.some(function(r) { return r.key === 'puree_cajou'; })) {
-      reco.pendant.push({ key: 'puree_cajou', qty: 1 });
-    }
+    if (!reco.pendant.some(function(r) { return r.key === 'puree_cajou'; })) { reco.pendant.push({ key: 'puree_cajou', qty: 1 }); }
   }
-
   if (nbGels >= 3) { reco.pendant.push({ key: 'fiole', qty: 2 }); }
   if (sport === 'trail' || sport === 'rando') { reco.pendant.push({ key: 'flask_500', qty: 1 }); }
 
@@ -1168,133 +996,99 @@ function generateRecommendations() {
   reco.apres.push({ key: 'infusion', qty: 1 });
   if (duree === '2a4h' || duree === 'plus4h' || sport === 'trail') { reco.apres.push({ key: 'curcuma', qty: 1 }); }
   if (answers.age === '45-60' || answers.age === '60+' || duree === 'plus4h') { reco.apres.push({ key: 'collagene', qty: 1 }); }
-  if ((objectif === 'performance' || duree === 'plus4h') && !reco.avant.some(function(r) { return r.key === 'magnesium'; })) {
-    reco.apres.push({ key: 'magnesium', qty: 1 });
-  }
+  if ((objectif === 'performance' || duree === 'plus4h') && !reco.avant.some(function(r) { return r.key === 'magnesium'; })) { reco.apres.push({ key: 'magnesium', qty: 1 }); }
   if (duree === '2a4h' || duree === 'plus4h') { reco.apres.push({ key: 'gel_recup', qty: 1 }); }
   if (duree === 'plus4h') { reco.apres.push({ key: 'tonic_boost', qty: 1 }); }
 
   return reco;
 }
 
-/* DISPLAY RESULTS */
+/* RESULTS */
 function showResults() {
   document.getElementById('wizardContainer').style.display = 'none';
   document.getElementById('progressContainer').style.display = 'none';
-  var rc = document.getElementById('resultContainer');
-  rc.classList.add('active');
+  document.getElementById('resultContainer').classList.add('active');
 
   var reco = generateRecommendations();
-
-  var sportLabels = { running: 'Running', trail: 'Trail', velo: 'Vélo / VTT', triathlon: 'Triathlon', rando: 'Randonnée', autre: 'Endurance' };
-  var dureeLabels = { 'moins1h': '< 1h', '1a2h': '1h à 2h', '2a4h': '2h à 4h', 'plus4h': '4h+' };
-  var objectifLabels = { performance: 'Performance', bienetre: 'Bien-être', decouverte: 'Découverte' };
+  var sportLabels = { running: 'Running', trail: 'Trail', velo: 'V\u00e9lo / VTT', triathlon: 'Triathlon', rando: 'Randonn\u00e9e', autre: 'Endurance' };
+  var dureeLabels = { 'moins1h': '< 1h', '1a2h': '1h \u00e0 2h', '2a4h': '2h \u00e0 4h', 'plus4h': '4h+' };
+  var objectifLabels = { performance: 'Performance', bienetre: 'Bien-\u00eatre', decouverte: 'D\u00e9couverte' };
 
   document.getElementById('profileSummary').innerHTML =
-    '<div class="profile-summary">' +
-      '<h2>Votre plan nutrition <span class="highlight">personnalisé</span></h2>' +
-      '<p class="profile-subtitle">Recommandations basées sur votre profil et vos objectifs.</p>' +
-      '<div class="profile-tags">' +
-        '<div class="profile-tag">' + sportLabels[answers.sport] + '</div>' +
-        '<div class="profile-tag">' + dureeLabels[answers.duree] + '</div>' +
-        '<div class="profile-tag">' + objectifLabels[answers.objectif] + '</div>' +
-        '<div class="profile-tag">' + (answers.sexe === 'homme' ? 'Homme' : 'Femme') + ' · ' + answers.age + ' ans · ' + answers.poids + ' kg</div>' +
-      '</div>' +
-    '</div>';
+    '<div class="profile-summary"><h2>Votre plan nutrition <span class="highlight">personnalis\u00e9</span></h2>' +
+    '<p class="profile-subtitle">Recommandations bas\u00e9es sur votre profil et vos objectifs.</p>' +
+    '<div class="profile-tags">' +
+    '<div class="profile-tag">' + sportLabels[answers.sport] + '</div>' +
+    '<div class="profile-tag">' + dureeLabels[answers.duree] + '</div>' +
+    '<div class="profile-tag">' + objectifLabels[answers.objectif] + '</div>' +
+    '<div class="profile-tag">' + (answers.sexe === 'homme' ? 'Homme' : 'Femme') + ' \u00b7 ' + answers.age + ' ans \u00b7 ' + answers.poids + ' kg</div>' +
+    '</div></div>';
 
-  document.getElementById('phaseBefore').innerHTML = renderPhase('1', 'Avant l\'effort', reco.avant, getExplanationAvant());
-  document.getElementById('phaseDuring').innerHTML = renderPhase('2', 'Pendant l\'effort', reco.pendant, getExplanationPendant());
-  document.getElementById('phaseAfter').innerHTML = renderPhase('3', 'Après l\'effort', reco.apres, getExplanationApres());
+  document.getElementById('phaseBefore').innerHTML = renderPhase('1', "Avant l'effort", reco.avant, getExplanationAvant());
+  document.getElementById('phaseDuring').innerHTML = renderPhase('2', "Pendant l'effort", reco.pendant, getExplanationPendant());
+  document.getElementById('phaseAfter').innerHTML = renderPhase('3', "Apr\u00e8s l'effort", reco.apres, getExplanationApres());
 
   var total = 0;
-  ['avant', 'pendant', 'apres'].forEach(function(phase) {
-    reco[phase].forEach(function(item) { total += products[item.key].price * item.qty; });
-  });
+  ['avant', 'pendant', 'apres'].forEach(function(ph) { reco[ph].forEach(function(item) { total += products[item.key].price * item.qty; }); });
 
   document.getElementById('cartSummary').innerHTML =
     '<div class="cart-summary">' +
-      '<div class="cart-total-label">Estimation du pack complet</div>' +
-      '<div class="cart-price">' + total.toFixed(2).replace('.', ',') + ' &euro;</div>' +
-      '<div class="cart-note">Prix indicatifs · Livraison offerte dès 69&euro;</div>' +
-      '<button class="btn-cart" onclick="openModal()">Ajouter au panier</button>' +
-      '<br><button class="btn-restart" onclick="restart()">Recommencer</button>' +
-    '</div>';
+    '<div class="cart-total-label">Estimation du pack complet</div>' +
+    '<div class="cart-price">' + total.toFixed(2).replace('.', ',') + ' \u20ac</div>' +
+    '<div class="cart-note">Prix indicatifs \u00b7 Livraison offerte d\u00e8s 69\u20ac</div>' +
+    '<button class="btn-cart" onclick="openModal()">Ajouter au panier</button><br>' +
+    '<button class="btn-restart" onclick="restart()">Recommencer</button></div>';
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function renderPhase(num, title, items, explanation) {
-  var html = '<div class="phase-section">';
-  html += '<div class="phase-header"><div class="phase-number">' + num + '</div>';
-  html += '<h3 class="phase-title">' + title + '</h3></div>';
-  html += '<p class="phase-explanation">' + explanation + '</p>';
-  html += '<div class="products-list">';
+  var html = '<div class="phase-section"><div class="phase-header"><div class="phase-number">' + num + '</div>' +
+    '<h3 class="phase-title">' + title + '</h3></div>' +
+    '<p class="phase-explanation">' + explanation + '</p><div class="products-list">';
   items.forEach(function(item) {
     var p = products[item.key];
     var tp = (p.price * item.qty).toFixed(2).replace('.', ',');
-    html += '<div class="product-card">';
-    html += '<div class="product-image"><img src="' + p.img + '" alt="' + p.name + '" loading="lazy"></div>';
-    html += '<div class="product-info"><div class="product-name">' + p.name + '</div>';
-    html += '<div class="product-desc">' + p.desc + '</div></div>';
-    html += '<div class="product-meta"><div class="product-price">' + tp + ' &euro;</div>';
-    html += '<div class="product-qty">x' + item.qty + '</div></div>';
-    html += '</div>';
+    html += '<a class="product-card" href="' + p.url + '" target="_blank" rel="noopener">' +
+      '<div class="product-image"><img src="' + p.img + '" alt="' + p.name + '" loading="lazy"></div>' +
+      '<div class="product-info"><div class="product-name">' + p.name + '</div>' +
+      '<div class="product-desc">' + p.desc + '</div></div>' +
+      '<div class="product-meta"><div class="product-price">' + tp + ' \u20ac</div>' +
+      '<div class="product-qty">x' + item.qty + '</div></div></a>';
   });
-  html += '</div></div>';
+  html += '</div><div class="product-link-hint">Cliquez sur un produit pour le voir sur meltonic.com</div></div>';
   return html;
 }
 
 /* EXPLANATIONS */
 function getExplanationAvant() {
   var p = [];
-  if (answers.duree === 'plus4h' || answers.duree === '2a4h') {
-    p.push("Pour un effort long, maximisez vos réserves de glycogène avec le gâteau énergétique et la maltodextrine.");
-  } else {
-    p.push("Un apport adapté avant l'effort pour partir avec de bonnes réserves sans lourdeur.");
-  }
-  if (answers.objectif === 'performance') {
-    p.push("La spiruline et le magnésium soutiennent vos performances en réduisant la fatigue musculaire.");
-  }
+  if (answers.duree === 'plus4h' || answers.duree === '2a4h') { p.push("Pour un effort long, maximisez vos r\u00e9serves de glycog\u00e8ne avec le g\u00e2teau \u00e9nerg\u00e9tique et la maltodextrine."); }
+  else { p.push("Un apport adapt\u00e9 avant l'effort pour partir avec de bonnes r\u00e9serves sans lourdeur."); }
+  if (answers.objectif === 'performance') { p.push("La spiruline et le magn\u00e9sium soutiennent vos performances en r\u00e9duisant la fatigue musculaire."); }
   return p.join(' ');
 }
 
 function getExplanationPendant() {
   var p = [];
-  if (answers.digestion === 'forte') {
-    p.push("Sensibilité digestive : nous privilégions les gels au miel, reconnus pour leur digestibilité grâce aux sucres naturels.");
-  } else if (answers.duree === 'plus4h') {
-    p.push("Sur un ultra, varier gels, barres et purées salées est essentiel pour maintenir l'appétence sur la durée.");
-  } else {
-    p.push("Les gels au miel bio apportent une énergie rapidement assimilable. La boisson complète l'hydratation avec glucides et électrolytes.");
-  }
-  if (answers.gout === 'sale' || answers.gout === 'les2') {
-    p.push("Les purées salées offrent une alternative au sucré et apportent le sodium nécessaire pendant l'effort.");
-  }
+  if (answers.digestion === 'forte') { p.push("Sensibilit\u00e9 digestive : nous privil\u00e9gions les gels au miel, reconnus pour leur digestibilit\u00e9 gr\u00e2ce aux sucres naturels."); }
+  else if (answers.duree === 'plus4h') { p.push("Sur un ultra, varier gels, barres et pur\u00e9es sal\u00e9es est essentiel pour maintenir l'app\u00e9tence sur la dur\u00e9e."); }
+  else { p.push("Les gels au miel bio apportent une \u00e9nergie rapidement assimilable. La boisson compl\u00e8te l'hydratation avec glucides et \u00e9lectrolytes."); }
+  if (answers.gout === 'sale' || answers.gout === 'les2') { p.push("Les pur\u00e9es sal\u00e9es offrent une alternative au sucr\u00e9 et apportent le sodium n\u00e9cessaire pendant l'effort."); }
   return p.join(' ');
 }
 
 function getExplanationApres() {
   var p = [];
-  p.push("La fenêtre post-effort est idéale pour la récupération. Protéine végétale et infusion récup' favorisent la reconstruction musculaire.");
-  if (answers.age === '45-60' || answers.age === '60+') {
-    p.push("Collagène et curcuma soutiennent vos articulations et réduisent les inflammations.");
-  }
-  if (answers.duree === 'plus4h') {
-    p.push("Après un ultra, le gel récup' et le Tonic Boost accélèrent la récupération et réduisent les courbatures.");
-  }
+  p.push("La fen\u00eatre post-effort est id\u00e9ale pour la r\u00e9cup\u00e9ration. Prot\u00e9ine v\u00e9g\u00e9tale et infusion r\u00e9cup' favorisent la reconstruction musculaire.");
+  if (answers.age === '45-60' || answers.age === '60+') { p.push("Collag\u00e8ne et curcuma soutiennent vos articulations et r\u00e9duisent les inflammations."); }
+  if (answers.duree === 'plus4h') { p.push("Apr\u00e8s un ultra, le gel r\u00e9cup' et le Tonic Boost acc\u00e9l\u00e8rent la r\u00e9cup\u00e9ration et r\u00e9duisent les courbatures."); }
   return p.join(' ');
 }
 
 /* MODAL & RESTART */
-function openModal() {
-  document.getElementById('cartModal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  document.getElementById('cartModal').classList.remove('active');
-  document.body.style.overflow = '';
-}
+function openModal() { document.getElementById('cartModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
+function closeModal() { document.getElementById('cartModal').classList.remove('active'); document.body.style.overflow = ''; }
 
 function restart() {
   answers = { sport: null, sexe: null, age: null, poids: null, duree: null, objectif: null, digestion: null, gout: null };
@@ -1306,12 +1100,24 @@ function restart() {
   document.querySelectorAll('.option-card.selected').forEach(function(c) { c.classList.remove('selected'); });
   document.querySelectorAll('input[type="radio"]').forEach(function(r) { r.checked = false; });
   document.getElementById('poids').value = '';
+  document.getElementById('poidsError').classList.remove('visible');
+  document.getElementById('poids').classList.remove('error');
   for (var i = 1; i <= 6; i++) { var b = document.getElementById('btn' + i); if (b) b.disabled = true; }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 document.getElementById('cartModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+/* Back to top button */
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('btnTop');
+  if (window.scrollY > 400 && document.getElementById('resultContainer').classList.contains('active')) {
+    btn.classList.add('visible');
+  } else {
+    btn.classList.remove('visible');
+  }
+});
 </script>
 
 </body>
