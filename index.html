@@ -694,9 +694,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .product-info {
@@ -1373,49 +1379,49 @@ var currentStep = 0; // 0=intro, 1-6=questions
    ============================================ */
 var products = {
   // Avant l'effort
-  gateau_choco:     { name: "Gâteau énergétique bio Chocolat",         price: 14.50, icon: "🍫", cat: "avant", desc: "Dernier repas énergétique avant compétition" },
-  gateau_framboise: { name: "Gâteau énergétique bio Framboise",        price: 14.50, icon: "🍰", cat: "avant", desc: "À déguster juste avant la compétition" },
-  gateau_noisette:  { name: "Gâteau énergétique bio Noisette",         price: 14.50, icon: "🌰", cat: "avant", desc: "À déguster juste avant la compétition" },
-  tonic_dej:        { name: "Tonic Dej' Bio Chocolat",                 price: 25.90, icon: "☕", cat: "avant", desc: "Petit-déjeuner idéal avant l'effort" },
-  maltodextrine:    { name: "Maltodextrine de maïs bio Citron",        price: 16.90, icon: "🍋", cat: "avant", desc: "Augmente les réserves énergétiques" },
-  spiruline:        { name: "Spiruline Tonic Bio",                     price: 12.90, icon: "💊", cat: "avant", desc: "Alliée pour l'effort et la récupération" },
-  magnesium:        { name: "Magnésium Tonic",                         price: 19.90, icon: "⚡", cat: "avant", desc: "Regain d'énergie en cas de fatigue musculaire" },
-  acerola:          { name: "Acérola Tonic Bio",                       price: 14.90, icon: "🍊", cat: "avant", desc: "Vitamine C pour tonus et vitalité" },
-  creme:            { name: "Crème anti-frottements",                   price:  9.90, icon: "🧴", cat: "avant", desc: "Prévient les frottements douloureux" },
+  gateau_choco:     { name: "Gâteau énergétique bio Chocolat",         price: 14.50, img: "https://www.meltonic.com/10063-large_default/gateau-energetique-bio-chocolat.jpg", cat: "avant", desc: "Dernier repas énergétique avant compétition" },
+  gateau_framboise: { name: "Gâteau énergétique bio Framboise",        price: 14.50, img: "https://www.meltonic.com/10657-large_default/gateau-energetique-bio-framboise.jpg", cat: "avant", desc: "À déguster juste avant la compétition" },
+  gateau_noisette:  { name: "Gâteau énergétique bio Noisette",         price: 14.50, img: "https://www.meltonic.com/10064-large_default/gateau-energetique-bio-noisette.jpg", cat: "avant", desc: "À déguster juste avant la compétition" },
+  tonic_dej:        { name: "Tonic Dej' Bio Chocolat",                 price: 25.90, img: "https://www.meltonic.com/10062-large_default/tonic-dej-bio-chocolat-miel-gelee-royale.jpg", cat: "avant", desc: "Petit-déjeuner idéal avant l'effort" },
+  maltodextrine:    { name: "Maltodextrine de maïs bio Citron",        price: 16.90, img: "https://www.meltonic.com/9513-large_default/maltodextrine-de-mais.jpg", cat: "avant", desc: "Augmente les réserves énergétiques" },
+  spiruline:        { name: "Spiruline Tonic Bio",                     price: 12.90, img: "https://www.meltonic.com/9850-large_default/spiruline-tonic-bio.jpg", cat: "avant", desc: "Alliée pour l'effort et la récupération" },
+  magnesium:        { name: "Magnésium Tonic",                         price: 19.90, img: "https://www.meltonic.com/9848-large_default/magnesium-tonic.jpg", cat: "avant", desc: "Regain d'énergie en cas de fatigue musculaire" },
+  acerola:          { name: "Acérola Tonic Bio",                       price: 14.90, img: "https://www.meltonic.com/9965-large_default/gelee-royale-tonic-bio.jpg", cat: "avant", desc: "Vitamine C pour tonus et vitalité" },
+  creme:            { name: "Crème anti-frottements",                   price:  9.90, img: "https://www.meltonic.com/18052-large_default/creme-anti-frottements.jpg", cat: "avant", desc: "Prévient les frottements douloureux" },
 
   // Pendant l'effort - Gels
-  gel_endurance:    { name: "Gel énergétique Endurance bio",            price:  2.90, icon: "🍯", cat: "pendant", desc: "Apport naturel d'énergie fruitée" },
-  gel_ultra:        { name: "Gel Ultra Endurance bio",                  price:  2.90, icon: "🍯", cat: "pendant", desc: "Énergie naturelle longues distances" },
-  gel_boost:        { name: "Gel Coup de Boost",                       price:  2.90, icon: "⚡", cat: "pendant", desc: "Caféine et magnésium pour un coup de fouet" },
-  gel_sale:         { name: "Gel Salé bio",                            price:  2.90, icon: "🧂", cat: "pendant", desc: "Gel énergétique goût salé" },
+  gel_endurance:    { name: "Gel énergétique Endurance bio",            price:  2.90, img: "https://www.meltonic.com/19135-large_default/gel-energetique-endurance.jpg", cat: "pendant", desc: "Apport naturel d'énergie fruitée" },
+  gel_ultra:        { name: "Gel Ultra Endurance bio",                  price:  2.90, img: "https://www.meltonic.com/19138-large_default/gel-energetique-ultra-endurance.jpg", cat: "pendant", desc: "Énergie naturelle longues distances" },
+  gel_boost:        { name: "Gel Coup de Boost",                       price:  2.90, img: "https://www.meltonic.com/19143-large_default/gel-energetique-coup-de-boost.jpg", cat: "pendant", desc: "Caféine et magnésium pour un coup de fouet" },
+  gel_sale:         { name: "Gel Salé bio",                            price:  2.90, img: "https://www.meltonic.com/19155-large_default/gel-energetique-sale.jpg", cat: "pendant", desc: "Gel énergétique goût salé" },
 
   // Pendant l'effort - Boissons
-  boisson_citron:   { name: "Boisson énergétique bio Citron (x6)",     price: 14.90, icon: "🍋", cat: "pendant", desc: "Hydratation & énergie bio pendant l'effort" },
-  boisson_fruits:   { name: "Boisson énergétique bio Fruits rouges (x2)", price: 5.90, icon: "🫐", cat: "pendant", desc: "Hydratation & énergie bio" },
-  boisson_menthe:   { name: "Boisson énergétique bio Menthe (x2)",     price:  4.72, icon: "🌿", cat: "pendant", desc: "Fraîcheur et énergie bio" },
+  boisson_citron:   { name: "Boisson énergétique bio Citron (x6)",     price: 14.90, img: "https://www.meltonic.com/2419-large_default/boisson-energetique-antioxydante.jpg", cat: "pendant", desc: "Hydratation & énergie bio pendant l'effort" },
+  boisson_fruits:   { name: "Boisson énergétique bio Fruits rouges (x2)", price: 5.90, img: "https://www.meltonic.com/15806-large_default/sachets-boisson-energetique-bio-fruits-rouges.jpg", cat: "pendant", desc: "Hydratation & énergie bio" },
+  boisson_menthe:   { name: "Boisson énergétique bio Menthe (x2)",     price:  4.72, img: "https://www.meltonic.com/15807-large_default/sachet-boisson-energetique-bio-menthe.jpg", cat: "pendant", desc: "Fraîcheur et énergie bio" },
 
   // Pendant l'effort - Barres
-  barre_pistache:   { name: "Barre énergétique bio Pistaches & Fleur de sel", price: 2.60, icon: "🥜", cat: "pendant", desc: "Énergie et sodium" },
-  barre_fraise:     { name: "Barre énergétique bio Fraise Citron",     price:  2.60, icon: "🍓", cat: "pendant", desc: "Énergie et gourmandise" },
-  barre_cacahuete:  { name: "Barre énergétique bio Cacahuète",         price:  2.60, icon: "🥜", cat: "pendant", desc: "Chocolatée et gourmande" },
-  barre_cereales_cajou: { name: "Barre céréales bio Cajou & Fleur de Sel", price: 2.90, icon: "🌾", cat: "pendant", desc: "Encas croustillant et sain" },
+  barre_pistache:   { name: "Barre énergétique bio Pistaches & Fleur de sel", price: 2.60, img: "https://www.meltonic.com/14513-large_default/barre-salee.jpg", cat: "pendant", desc: "Énergie et sodium" },
+  barre_fraise:     { name: "Barre énergétique bio Fraise Citron",     price:  2.60, img: "https://www.meltonic.com/14511-large_default/barre-energetique-bio-fraise-citron.jpg", cat: "pendant", desc: "Énergie et gourmandise" },
+  barre_cacahuete:  { name: "Barre énergétique bio Cacahuète",         price:  2.60, img: "https://www.meltonic.com/14519-large_default/barre-energetique-bio-cacahuete-choco.jpg", cat: "pendant", desc: "Chocolatée et gourmande" },
+  barre_cereales_cajou: { name: "Barre céréales bio Cajou & Fleur de Sel", price: 2.90, img: "https://www.meltonic.com/8104-large_default/barre-cereales-noix-de-cajou.jpg", cat: "pendant", desc: "Encas croustillant et sain" },
 
   // Pendant l'effort - Purées salées
-  puree_cajou:      { name: "Purée salée Cajou",                       price:  2.90, icon: "🥜", cat: "pendant", desc: "Format pratique, goût salé" },
-  puree_cacahuete:  { name: "Purée salée Cacahuètes",                  price:  2.90, icon: "🥜", cat: "pendant", desc: "Format pratique, goût salé" },
+  puree_cajou:      { name: "Purée salée Cajou",                       price:  2.90, img: "https://www.meltonic.com/15192-large_default/stick-puree-salee-cajou.jpg", cat: "pendant", desc: "Format pratique, goût salé" },
+  puree_cacahuete:  { name: "Purée salée Cacahuètes",                  price:  2.90, img: "https://www.meltonic.com/15191-large_default/stick-puree-salee-cacahuetes.jpg", cat: "pendant", desc: "Format pratique, goût salé" },
 
   // Pendant l'effort - Accessoires
-  flask_250:        { name: "Soft flask 250ml",                        price:  9.90, icon: "🧪", cat: "pendant", desc: "Flasque souple légère" },
-  flask_500:        { name: "Soft flask 500ml",                        price: 12.90, icon: "🧪", cat: "pendant", desc: "Flasque souple grande capacité" },
-  fiole:            { name: "Fiole éco rechargeable 37ml",             price:  4.90, icon: "🔄", cat: "pendant", desc: "Pour recharger vos gels" },
+  flask_250:        { name: "Soft flask 250ml",                        price:  9.90, img: "https://www.meltonic.com/11819-large_default/soft-flask-250ml.jpg", cat: "pendant", desc: "Flasque souple légère" },
+  flask_500:        { name: "Soft flask 500ml",                        price: 12.90, img: "https://www.meltonic.com/12027-large_default/soft-flask.jpg", cat: "pendant", desc: "Flasque souple grande capacité" },
+  fiole:            { name: "Fiole éco rechargeable 37ml",             price:  4.90, img: "https://www.meltonic.com/266-large_default/fiole-eco-gel.jpg", cat: "pendant", desc: "Pour recharger vos gels" },
 
   // Après l'effort
-  proteine:         { name: "Protéine végétale bio",                   price: 19.90, icon: "💪", cat: "apres", desc: "Récupération après l'effort" },
-  collagene:        { name: "Collagène Tonic",                         price: 14.90, icon: "🦴", cat: "apres", desc: "Articulations solides, récupération optimisée" },
-  curcuma:          { name: "Curcuma Tonic Bio",                       price: 12.90, icon: "🟡", cat: "apres", desc: "Confort articulaire" },
-  infusion:         { name: "Infusion Récup' bio",                     price:  5.90, icon: "🍵", cat: "apres", desc: "Récupération rapide et efficace" },
-  gel_recup:        { name: "Gel récup' certifié Cosmos Natural",      price:  9.90, icon: "❄️", cat: "apres", desc: "Ultra frais pour récupération rapide" },
-  tonic_boost:      { name: "Tonic Boost Shot Bio",                    price: 19.90, icon: "🚀", cat: "apres", desc: "Shot d'énergie naturelle" }
+  proteine:         { name: "Protéine végétale bio",                   price: 19.90, img: "https://www.meltonic.com/11125-large_default/proteine-vegetale.jpg", cat: "apres", desc: "Récupération après l'effort" },
+  collagene:        { name: "Collagène Tonic",                         price: 14.90, img: "https://www.meltonic.com/17666-large_default/collagene-tonic.jpg", cat: "apres", desc: "Articulations solides, récupération optimisée" },
+  curcuma:          { name: "Curcuma Tonic Bio",                       price: 12.90, img: "https://www.meltonic.com/9849-large_default/curcuma-tonic.jpg", cat: "apres", desc: "Confort articulaire" },
+  infusion:         { name: "Infusion Récup' bio",                     price:  5.90, img: "https://www.meltonic.com/19357-large_default/infusion-recup-.jpg", cat: "apres", desc: "Récupération rapide et efficace" },
+  gel_recup:        { name: "Gel récup' certifié Cosmos Natural",      price:  9.90, img: "https://www.meltonic.com/18053-large_default/gel-recup.jpg", cat: "apres", desc: "Ultra frais pour récupération rapide" },
+  tonic_boost:      { name: "Tonic Boost Shot Bio",                    price: 19.90, img: "https://www.meltonic.com/14234-large_default/tonic-boost-shot.jpg", cat: "apres", desc: "Shot d'énergie naturelle" }
 };
 
 /* ============================================
@@ -1772,7 +1778,7 @@ function renderPhase(phase, title, icon, className, items, explanation) {
     var p = products[item.key];
     var totalPrice = (p.price * item.qty).toFixed(2).replace('.', ',');
     html += '<div class="product-card">';
-    html += '<div class="product-image">' + p.icon + '</div>';
+    html += '<div class="product-image"><img src="' + p.img + '" alt="' + p.name + '" loading="lazy"></div>';
     html += '<div class="product-info"><div class="product-name">' + p.name + '</div>';
     html += '<div class="product-desc">' + p.desc + '</div></div>';
     html += '<div class="product-meta"><div class="product-price">' + totalPrice + ' &euro;</div>';
